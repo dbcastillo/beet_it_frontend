@@ -18,4 +18,22 @@ function showWelcome() {
   const breakfast = document.getElementById('breakfast')
   const lunch = document.getElementById('lunch')
   const dinner = document.getElementById('dinner')
+
+  breakfast.addEventListener('click', (event) => {
+    const removeDiv = document.getElementById('welcomePage')
+    removeDiv.remove()
+    showCuisines(1)
+  })
+  lunch.addEventListener('click', (event) => {
+    const removeDiv = document.getElementById('welcomePage')
+    removeDiv.remove()
+    showCuisines(2)
+  })
+  dinner.addEventListener('click', (event) => {
+    const removeDiv = document.getElementById('welcomePage')
+    removeDiv.remove()
+    showCuisines(3)
+  })
+
+
 }
