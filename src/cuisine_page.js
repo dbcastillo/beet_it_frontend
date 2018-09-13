@@ -30,8 +30,15 @@ function showCuisines(num) {
   cuisineDiv.addEventListener('click', (event) => {
     if (event.target.classList.contains('cuisineHeader')) {
       fetch('http://localhost:3000/api/v1/recipes')
-      .then(res => console.log(res))
+      .then(res => res.json())
+      .then(recipes => {
+        recipes.forEach(recipe => {
+          console.log(recipe)
+        })
+      })
     }
   })
+  // console.log(recipe.cuisine.name, recipe.mealtime.name)
+  // cuisineList.remove()
 
 }
