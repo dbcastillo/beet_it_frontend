@@ -1,15 +1,11 @@
 function showRecipe(recipe) {
-  let recipeList = document.getElementById('recipes-list')
-  recipeList.innerHTML = `
-  <h1>Choose Recipe</h1>
+  let recipeName = document.createElement("li")
+  recipeName.id = "cuisine-li"
+  recipeName.innerHTML =
   `
-
-  let recipeName = `
-  <li id='cuisine-li'>
-    <h4 class='recipeHeader'>${recipe.name}</h4>
-  </li>
+  <button id="recipeButton">${recipe.title}</button>
+  <br>
+  <br>
   `
-  recipeList.innerHTML += recipeName
-
-  return recipe
+  return recipeName
 }

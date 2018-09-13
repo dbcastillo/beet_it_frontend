@@ -3,42 +3,48 @@ function showCuisines(num) {
   const cuisineList = document.querySelector('#cuisines-list')
   cuisineList.innerHTML = `<h1>Choose Cuisine</h1>`
 
-  const endPoint = `http://localhost:3000/api/v1/meals/${num}`
-  fetch(endPoint)
-    .then(res => res.json())
-    .then(meals => {
-      const cuisineArray = meals['cuisines']
-      cuisineArray.forEach(cuisine => {
-        renderCuisines(cuisine)
-      })
-
-    })
+  cuisineDiv = document.getElementById('cuisine-div')
+  cuisineDiv.appendChild(cuisineList)
 
   function renderCuisines(cuisine) {
     const cuisineName = `
     <li id='cuisine-li'>
-      <h4 class='cuisineHeader'>${cuisine.name}</h4>
+    <button class="cuisineButton">${cuisine}</button>
     </li>
+    <br>
     `
     cuisineList.innerHTML += cuisineName
     return cuisine
   }
 
-  const cuisineDiv = document.getElementById('cuisine-div')
-  cuisineDiv.appendChild(cuisineList)
+  const endPoint = `http://localhost:3000/api/v1/meals/${num}`
+  fetch(endPoint)
+    .then(res => res.json())
+    .then(meals => {
+      mealObject = meals['recipe_cards']
+      const mealCuisines = Object.keys(mealObject)
+      mealCuisines.forEach((cuisine) => {
+        renderCuisines(cuisine)
 
-  cuisineDiv.addEventListener('click', (event) => {
-    if (event.target.classList.contains('cuisineHeader')) {
-      fetch('http://localhost:3000/api/v1/recipes')
-      .then(res => res.json())
-      .then(recipes => {
-        recipes.forEach(recipe => {
-          console.log(recipe)
-        })
       })
-    }
-  })
-  // console.log(recipe.cuisine.name, recipe.mealtime.name)
-  // cuisineList.remove()
+    })
+
+    cuisineDiv.addEventListener('click', (event) => {
+      if (event.target.classList.contains('cuisineButton')) {
+        const cuisineType = event.target.innerText
+        const recipecardArray = mealObject[cuisineType]
+
+        cuisineDiv.remove()
+
+        let recipeList = document.getElementById('recipes-list')
+        recipeList.innerHTML = `
+        <h1>Choose Recipe</h1>
+        `
+
+        recipecardArray.forEach((recipeCard) => {
+          recipeList.append(showRecipe(recipeCard))
+        })
+      }
+    })
 
 }
