@@ -1,3 +1,40 @@
-#cuisine-li {
-  color: black;
+
+
+h1 {
+  padding: 20px 20px 20px 20px;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+img {
+  width: 400px;
+  height: 400px;
+  margin:0 auto;
+  margin-left: auto;
+	margin-right: auto;
+	display: block;
+  padding: 10px;
+}
+
+
+#recipeSquare{
+  width: 660px;
+  min-height: 680px;
+  background: linear-gradient(160deg, #527aff 0%, #fff352 100%);
+  padding: 32px;
+  border-radius: 10px;
+  box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 0 3em;
+
 }
