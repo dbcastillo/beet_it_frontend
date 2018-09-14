@@ -36,13 +36,21 @@ function showCuisines(num) {
 
         cuisineDiv.remove()
 
-        let recipeList = document.getElementById('recipes-list')
+        recipeList = document.getElementById('recipes-list')
         recipeList.innerHTML = `
         <h1>Choose Recipe</h1>
         `
 
         recipecardArray.forEach((recipeCard) => {
           recipeList.append(showRecipe(recipeCard))
+        })
+
+        recipeList.addEventListener('click', (event) => {
+          recipecardArray.forEach(card => {
+            if (card['title'] === event.target.innerText) {
+              rendertheCard(card)
+            }
+          })
         })
       }
     })

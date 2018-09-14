@@ -1,4 +1,4 @@
-function showWelcome() {
+function realWelcome() {
   const welcomeDiv = document.createElement('div')
   welcomeDiv.id = 'welcomePage'
   welcomeDiv.innerHTML = `
