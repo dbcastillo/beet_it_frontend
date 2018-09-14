@@ -24,16 +24,20 @@ function rendertheCard(card) {
 
   // recipeSquare.append(rsH1, rsImg, rsH2, rsUl, rsLi, rsH22, rsH33)
 
-  recipeSquare.innerHTML = `
+  recipeSquare.innerHTML =
+  `
   <h1>${card.title}</h1>
   <img src="${card.image}">
-  <h2>Ingredients:</h2>
-  <ul class='ingrd-ol'></ul>
-  <h2>Instructions:</h2>
-  <ol class='instr-ol'></ol>
+  <div>
+    <h2>Ingredients:</h2>
+    <ul class='ingrd-ol'></ul>
+    <h2>Instructions:</h2>
+    <ol class='instr-ol'></ol>
+  </div>
   `
-  instOl = recipeSquare.children[5]
-  ingrOl = recipeSquare.children[3]
+
+  instOl = recipeSquare.children[2].children[3];
+  ingrOl = recipeSquare.children[2].children[1];
   inst = card.instructions
   ingr = card.ingredients
   instArray = JSON.parse(inst)
