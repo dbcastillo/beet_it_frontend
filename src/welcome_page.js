@@ -1,5 +1,3 @@
-
-
 function showWelcome() {
   const welcomeDiv = document.createElement('div')
   welcomeDiv.id = 'welcomePage'
