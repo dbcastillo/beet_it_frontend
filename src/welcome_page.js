@@ -1,12 +1,9 @@
 function showWelcome() {
   const welcomeDiv = document.createElement('div')
   welcomeDiv.id = 'welcomePage'
-  welcomeDiv.innerHTML = `
-  <h1>WELCOME TO BEET IT!</h1>
-  <br>
-  <h3>No money, No problem!</h3>
-  <h3>We've got you covered!</h3>
-  <h3>Start by choosing which meal you're about to have...</h3>
+  welcomeDiv.innerHTML =
+  `
+  <h1>Which meal are you about to have...</h1>
   <br>
   <button Id="breakfast" name="button">Breakfast</button>
   <button Id="lunch" name="button">Lunch</button>
