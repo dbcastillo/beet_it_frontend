@@ -91,7 +91,11 @@ function renderForm() {
         })
       })
       .then(res => res.json())
-      .then(card => console.log(card))
+      .then(card => {
+        formDiv.remove()
+        temp = document.querySelector("#temp-div");
+        //temp.append(rendertheCard(card))
+      })
     })
 }
 //cuisineInput
